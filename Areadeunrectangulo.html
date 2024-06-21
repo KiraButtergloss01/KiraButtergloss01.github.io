@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectángulo encontrado</title>
+    
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Seymour+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+    
+    .main{
+        text-align:center;
+        align-items: center;
+        width: 80%;
+        margin: 0px auto 0px auto;
+        
+    }
+    .rectangulo {
+                    justify-content: center;
+                    display: flex;
+                    width:100%;
+                }
+    .Izquierda{
+        position: absolute;
+        font-weight: bold;
+        bottom: 32%;
+        left: 38.5%;
+    }
+    .Derecha{
+        position: absolute;
+        font-weight: bold;
+        bottom: 32%;
+        right: 33%;
+    }
+    .Arriba{
+        position: absolute;
+        font-weight: bold;
+        left: 51%;
+        top: 50%;
+    }  
+    .Abajo{
+        position: absolute;
+        font-weight: bold;
+        left: 51%;
+        bottom: 17%;
+    } 
+    .Centro{
+        position: absolute;
+        font-weight: bold;
+        bottom: 36%;
+        right: 45%;  
+    }
+    .pie{
+        color: midnightblue;
+        font-family: 'Geneva', sans-serif;
+        font-size: 1.1rem;
+        text-align:center;
+        font-weight: bold;
+        bottom: 70%;
+    }
+    .button{
+        background: black;
+        cursor: pointer;
+        border: none;
+        padding: auto;
+        color: aliceblue;
+        font-weight: bold;
+        position: relative;
+        border-radius: 15px;
+
+    }
+
+    button:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+        background-size: 800%;
+        border-radius: 12px;
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+    }
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+</style>
+</head>
+<body id="body">
+    
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectangulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triangulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html">
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+    <div class="main">
+        <b class="b">Área de un rectángulo</b>
+        <br>
+        En este programa se calcula el área de un rectángulo con lados <b>a</b> y <b>b</b> respectivamennte.
+        <br><br><br>
+        <label for="a">Ingrese el valor de <b>a</b>:</label>
+        <input type="text" id="a">
+        <button class="button" onclick="calcularÁrea()">Calcular Área</button>
+        <br><br><br>
+
+        <label for="B">Ingrese el valor de <b>b</b>:</label>
+        <input type="text" id="B">
+        <button class="button" onclick="calcularaltura()">Calcular la altura</button>
+        <br><br><br>
+
+        <div class="rectangulo">
+            <img src="DecoImg/rect.png" alt="La imagen no se pudo cargar">
+            <div class="Izquierda" id="Izquierda">a</div>
+            <div class="Arriba" id="Arriba">b</div>
+            <div class="Abajo" id="Abajo">b</div>
+            <div class="Derecha" id="Derecha">a</div>
+            <div class="Centro" id="Centro">Diagonal</div>
+        </div>
+        <br><br><br>
+        <label for="h">Ingrese el valor de <b>Área</b>:</label>
+        <input type="text" id="Área">
+        <button class="button" onclick="calcularbase()">Calcular la base</button>
+        <br><br><br>
+        <b class="b">Perímetro de un rectángulo</b>
+        <br>
+        En este programa se calcula el perímetro de un rectángulo con lados <b>a</b> y <b>b</b> respectivamennte.
+        <br><br>
+        <input type="text" id="P">
+        <button class="button" onclick="calcularperimetro()">Calcular perímetro</button>
+        <br><br><br>
+        <b class="b">Diagonal de un Rectángulo</b>
+        <br>
+        <label for="h">Una vez que ingreses los valores presiona el botón:</label>
+        <br>
+        <input type="text" id="D">
+        <button class="button" onclick="calculardiagonal()">Calcular la diagonal</button>
+        <br><br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br><br><br>
+    </div>
+    <footer class="pie">
+        <br>
+        Esperamos que te haya sido de ayuda revisa el apartado definiciones de la página principal 
+        si quieres saber más del tema.
+    </footer>
+    <script src="calculadoramenu.js"></script>
+</body>
+<script language='javascript'>
+    function calcularÁrea(){
+        var B = document.getElementById("B").value;
+        var h =document.getElementById("a").value;
+        var area = B*h;
+
+        document.getElementById("Arriba").textContent = B;
+        document.getElementById("Abajo").textContent = B;
+        document.getElementById("Izquierda").textContent = h;
+        document.getElementById("Derecha").textContent = h;
+
+        document.getElementById("Área").value=area;
+    }
+    function calcularbase(){
+        var altura = document.getElementById("a").value;
+        var area = document.getElementById("Área").value;
+        var base = area/altura; 
+
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+
+        document.getElementById("B").value=base;
+    }
+    function calcularaltura(){
+        var base = document.getElementById("B").value;
+        var area = document.getElementById("Área").value;
+        var altura = area/base; 
+
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+
+        document.getElementById("a").value=altura;
+    }
+    function calcularperimetro(){
+        var base = parseInt(document.getElementById("B").value);
+        var altura =parseInt(document.getElementById("a").value);
+        var perimeter = 2*(base+altura); 
+
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+
+        document.getElementById("P").value=perimeter;
+    } 
+    function calculardiagonal(){
+        var base = parseInt(document.getElementById("B").value);
+        var altura =parseInt(document.getElementById("a").value);
+        var diagonal = Math.sqrt((Math.pow(base,2)+Math.pow(altura,2))).toPrecision(5); 
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+        document.getElementById("Centro").textContent =diagonal;
+        document.getElementById("D").value=diagonal;
+    }
+    function Limpiarcampos(){
+        document.getElementById("Arriba").textContent = "Arriba";
+        document.getElementById("Abajo").textContent = "Abajo";
+        document.getElementById("Izquierda").textContent = "Izquierda";
+        document.getElementById("Derecha").textContent = "Derecha";
+        document.getElementById("Centro").textContent ="Diagonal";
+        document.getElementById("Área").value="";
+        document.getElementById("a").value="";
+        document.getElementById("B").value="";
+        document.getElementById("P").value="";
+        document.getElementById("D").value="";
+    }
+</script>
+
+</html>

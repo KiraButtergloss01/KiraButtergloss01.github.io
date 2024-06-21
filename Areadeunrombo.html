@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rombo encontrado</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Seymour+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+    
+    .main{
+        text-align:center;
+        align-items: center;
+        width: 80%;
+        margin: 0px auto 0px auto;
+        
+    }
+    .rectangulo {
+                    justify-content: center;
+                    display: flex;
+                    width:100%;
+                }
+
+    .Izquierda{
+        position: absolute;
+        font-weight: bold;
+        bottom: 54%;
+        left: 49%;
+    }
+    .Derecha{
+        position: absolute;
+        font-weight: bold;
+        bottom: 27%;
+        right: 30%;
+    } 
+
+    .pie{
+        color: midnightblue;
+        font-family: 'Geneva', sans-serif;
+        font-size: 1.1rem;
+        text-align:center;
+        font-weight: bold;
+        bottom: 70%;
+    }
+    .button{
+        background: black;
+        cursor: pointer;
+        border: none;
+        padding: auto;
+        color: aliceblue;
+        font-weight: bold;
+        position: relative;
+        border-radius: 15px;
+
+    }
+
+    button:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+        background-size: 800%;
+        border-radius: 12px;
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+    }
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+</style>
+
+<body id="body">
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html" >
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html" >
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectangulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triangulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html">
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+    <div class="main">
+        <b class="b">Área de un Rombo</b>
+        <br>
+        En este programa se calcula el área de un Rombo cuya diagonal mayor es <b>D</b> y su diagonal menor es <b>d</b>
+        <br><br>
+        <label for="h">Ingrese el valor de <b>D</b>:</label>
+        <input type="text" id="D">
+        <button class="button" onclick="calcularÁrea()">Calcular Área</button>
+        <br><br>
+
+        <label for="h">Ingrese el valor de <b>d</b>:</label>
+        <input type="text" id="d">
+        <button class="button" onclick="calculardiagonalmayor()">Calcular la Diagonal mayor</button>
+        <br><br><br>
+
+            <div class="rectangulo">
+                <img src="DecoImg/Rombo.png" alt="La imagen no se pudo cargar">
+                <div class="Izquierda" id="Izquierda">Diagonal Mayor</div>
+                <div class="Derecha" id="Derecha">Diagonal Menor</div>
+        </div>
+        <br>
+        <label for="h">Ingrese el valor de <b>Área</b>:</label>
+        <input type="text" id="Área">
+        <button class="button" onclick="calculardiagonalmenor()">Calcular la Diagonal menor</button>
+        <br><br>
+        <b class="b">Perímetro de un Cuadrado</b>
+        <br>
+        En este programa se calcula el perímetro de un rombo cuyos lados miden <b>a</b>
+        <br><br>
+        <label for="L">Ingrese el lado a:</label>
+        <input type="text" id="L">
+        <br><br>
+        <input type="text" id="P">
+        <button class="button" onclick="calcularperimetro()">Calcular perímetro</button>
+        <br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br>
+    </div>
+    <footer class="pie">
+        <br>
+        Esperamos que te haya sido de ayuda revisa el apartado definiciones de la página principal 
+        si quieres saber más del tema.
+    </footer>
+    <script src="Calculadoramenu.js"></script>
+</body>
+<script >
+    function calcularÁrea(){
+    let B = document.getElementById("D").value;
+    let h =document.getElementById("d").value;
+    const area = (B*h)/2;
+
+    document.getElementById("Izquierda").textContent =B;
+    document.getElementById("Derecha").textContent = h;
+    document.getElementById("Área").value=area;
+}
+function calculardiagonalmayor(){
+    let altura = document.getElementById("d").value;
+    let area = document.getElementById("Área").value;
+    const base = (area*2)/altura; 
+
+    document.getElementById("Izquierda").textContent = base;
+    document.getElementById("Derecha").textContent = altura;
+
+    document.getElementById("D").value=base;
+}
+function calculardiagonalmenor(){
+    let base = document.getElementById("D").value;
+    let area = document.getElementById("Área").value;
+    const altura = (area*2)/base; 
+
+    document.getElementById("Izquierda").textContent = base;
+    document.getElementById("Derecha").textContent = altura;
+
+    document.getElementById("d").value=altura;
+}
+function calcularperimetro(){
+        var lado = document.getElementById("L").value;
+        var perimeter =lado*4; 
+        document.getElementById("P").value=perimeter;
+    }
+function Limpiarcampos(){
+
+    document.getElementById("Izquierda").textContent = "Diagonal Mayor";
+    document.getElementById("Derecha").textContent = "Diagonal Menor";
+    document.getElementById("Área").value="";
+    document.getElementById("d").value="";
+    document.getElementById("D").value="";
+    document.getElementById("P").value="";
+    document.getElementById("L").value="";
+}
+</script>
+</html>

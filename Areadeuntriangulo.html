@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triángulo encontrado</title>
+    
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Seymour+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap'); 
+
+    .main{
+        text-align:center;
+        align-items: center;
+        width: 80%;
+        margin: 0px auto 0px auto;
+        
+    }
+    .triangulo {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 90%;
+        border-radius: 8px;
+        height: auto;
+    }
+    .Izquierda{
+        position: absolute;
+        font-weight: bold;
+        bottom: 24%;
+        left: 40%;
+    }
+    .Derecha{
+        position: absolute;
+        font-weight: bold;
+        bottom: 34%;
+        right: 46%;
+    }
+    .Arriba{
+        position: absolute;
+        font-weight: bold;
+        left: 49%;
+        top: 53.5%;
+    }  
+    .Abajo{
+        position: absolute;
+        font-weight: bold;
+        left: 50%;
+        bottom: 7%;
+    } 
+    .pie{
+        color: midnightblue;
+        font-family: 'Geneva', sans-serif;
+        font-size: 1.1rem;
+        text-align:center;
+        font-weight: bold;
+        bottom: 70%;
+    }
+    .button{
+        background: black;
+        cursor: pointer;
+        border: none;
+        padding: auto;
+        color: aliceblue;
+        font-weight: bold;
+        position: relative;
+        border-radius: 15px;
+
+    }
+
+    button:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+        background-size: 800%;
+        border-radius: 12px;
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+    }
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+    .div {
+        display: grid;
+        align-items: center;
+        grid-template-columns:
+        repeat(
+        auto-fit,
+        minmax(150px, 1fr)
+        );
+        gap: 32px;
+    }
+</style>
+</head>
+<body id="body">
+    
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectángulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triángulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html" >
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+        <b class="b">Área de un Triángulo</b>
+        <br>
+        En este apartado se calcula el área de un Triángulo cuya base es denotada por <b>B</b>
+        y su altura por <b>h</b>. Esta calculadora funciona para triangulos escalenos, obtusángulos y rectángulos
+        <br>
+        En el caso del Triángulo rectángulo se usan los catetos denotados por <b>a</b> y <b>b</b> como se aprecia en las figuras.
+        <br><br>
+        <div class="div">
+            <img class="triangulo" src="DecoImg/TEscaleno.png" alt="La imagen no se pudo cargar">
+            <img class="triangulo" src="DecoImg/TRec.png" alt="La imagen no se pudo cargar">
+            <img class="triangulo" src="DecoImg/TObtu.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="alturah">Ingrese el valor de <b>h</b>  o cateto <b>a</b>:</label>
+        <input type="text" id="alturah">
+        <br><br>
+        <label for="BaseB">Ingrese el valor de <b>B</b>  o cateto <b>b</b>:</label>
+        <input type="text" id="BaseB">
+        <br><br>
+        <label for="Área1"><b>Área</b>:</label>
+        <input type="text" id="Área1">
+        <br><br>
+        <button class="button" onclick="calcularÁreaTriángulo()">Calcular Área</button>
+        <br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br><br><br>
+        <b class="b">Área de un Triángulo equilátero</b>
+        <br>
+        En este apartado se calcula el área de un Triángulo equilátero cuyos lados están denotados por <b>x</b>.
+        <br><br>
+        <div class="triangulo">
+            <img src="DecoImg/TEqui.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="ladox">Ingrese el valor de <b>x</b>:</label>
+        <input type="text" id="ladox">
+        <br><br>
+        <label for="Área2"><b>Área</b>:</label>
+        <input type="text" id="Área2">
+        <br><br>
+        <button class="button" onclick="calcularÁreaTequilátero()">Calcular Área</button>
+        <br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br><br><br>
+        <b class="b">Área de un Triángulo isóceles</b>
+        <br>
+        En este apartado se calcula el área de un Triángulo isóceles cuyos <b>lados</b> están denotados por <b>a</b>
+        y <b>L</b> y su <b>altura</b> por <b>h</b> como se muestra en la figura.
+        <br>
+        <b>¿No conoces la altura?</b>, No hay problema deja el espacio en blanco y la calculadora la encontrará por ti.
+        <br><br>
+        <div class="triangulo">
+            <img src="DecoImg/Tiso.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="ladoa1">Ingrese el valor de <b>a</b>:</label>
+        <input type="text" id="ladoa1">
+        <br><br>
+        <label for="ladoL">Ingrese el valor de <b>L</b>:</label>
+        <input type="text" id="ladoL">
+        <br><br>
+        <label for="alturaIso">Ingrese el valor de <b>h</b>:</label>
+        <input type="text" id="alturaIso">
+        <br><br>
+        <label for="Área3"><b>Área</b>:</label>
+        <input type="text" id="Área3">
+        <br><br>
+        <button class="button" onclick="calcularÁreaTisóceles()">Calcular Área</button>
+        <br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br><br><br>
+        <b class="b">¿No sabes que tipo de triángulo es?</b>
+        <br>
+        No te procupes, este apartado se calcula el área para cualquier tipo de triángulo utilizando la fórmula de Herón
+        Para usarla lo único que necesitas es conocer la medida de todos las lados del triángulo. Dichos lados estarán 
+        denotados por <b>a</b>, <b>b</b> y su <b>c</b> como se muestra en la figura.
+        <br><br>
+        <div class="triangulo">
+            <img src="DecoImg/THeron.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="ladoa2">Ingrese el valor de <b>a</b>:</label>
+        <input type="text" id="ladoa2">
+        <br><br>
+        <label for="ladob">Ingrese el valor de <b>b</b>:</label>
+        <input type="text" id="ladob">
+        <br><br>
+        <label for="ladoc">Ingrese el valor de <b>c</b>:</label>
+        <input type="text" id="ladoc">
+        <br><br>
+        <label for="Área4"><b>Área</b>:</label>
+        <input type="text" id="Área4">
+        <br><br>
+        <button class="button" onclick="calcularÁreaTdesconocido()">Calcular Área</button>
+        <br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br><br><br>
+    <footer class="pie">
+        <br>
+        Esperamos que te haya sido de ayuda revisa el apartado definiciones de la página principal 
+        si quieres saber más del tema.
+    </footer>
+    <script src="calculadoramenu.js"></script>
+</body>
+<script language='javascript'>
+    function calcularÁreaTriángulo(){
+        let Base = parseFloat(document.getElementById("BaseB").value);
+        let altura =parseFloat(document.getElementById("alturah").value);
+        const area = (Base*altura)/2;
+        document.getElementById("Área1").value=area;
+    } 
+    function calcularÁreaTequilátero(){
+        let LadoX = parseFloat(document.getElementById("ladox").value);
+        const area = (Math.sqrt(3)/4)*(Math.pow(LadoX,2));
+        document.getElementById("Área2").value=area;
+    }
+    function calcularÁreaTisóceles(){
+        let Base = parseFloat(document.getElementById("ladoL").value);
+        let Ladoa = parseFloat(document.getElementById("ladoa1").value);
+        let altura =parseFloat(document.getElementById("alturaIso").value);
+        let alturareal;
+        let area;
+        console.log(altura, isNaN(altura));
+        if(isNaN(altura)){
+            const división = (Math.pow(Base,2))/4;
+            const resta=(Math.pow(Ladoa,2))-división;
+            alturareal = Math.sqrt(resta);
+            area=(Base*alturareal)/2;
+            document.getElementById("Área3").value=area;
+            document.getElementById("alturaIso").value=alturareal;
+            
+        }
+        else{
+            area=(Base*altura)/2;
+            document.getElementById("Área3").value=area;
+        }
+        
+    }
+    function calcularÁreaTdesconocido(){
+        let Ladoa = parseFloat(document.getElementById("ladoa2").value);
+        let Ladob = parseFloat(document.getElementById("ladob").value);
+        let Ladoc = parseFloat(document.getElementById("ladoc").value);
+        const semiperimetro= (Ladoa+Ladob+Ladoc)/2;
+        const resta1 = (semiperimetro-Ladoa);
+        const resta2 = (semiperimetro-Ladob);
+        const resta3 = (semiperimetro-Ladoc);
+        const multiplicacion1=resta1*resta2*resta3;
+        const multiplicacion2= semiperimetro*multiplicacion1;
+        const Area=Math.sqrt(multiplicacion2);
+        document.getElementById("Área4").value=Area;
+    }
+    function Limpiarcampos(){
+
+        document.getElementById("Área1").value="";
+        document.getElementById("Área2").value="";
+        document.getElementById("Área3").value="";
+        document.getElementById("Área4").value="";
+        document.getElementById("BaseB").value="";
+        document.getElementById("alturaIso").value="";
+        document.getElementById("ladoa1").value="";
+        document.getElementById("ladoL").value="";
+        document.getElementById("ladox").value="";
+        document.getElementById("alturah").value="";
+        document.getElementById("ladoa2").value="";
+        document.getElementById("ladob").value="";
+        document.getElementById("ladoc").value="";
+    }
+</script>
+
+</html>

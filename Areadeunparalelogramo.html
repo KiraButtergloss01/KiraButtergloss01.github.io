@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paralelogramo encontrado</title>
+    
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Seymour+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+    .main{
+        text-align:center;
+        align-items: center;
+        width: 80%;
+        margin: 0px auto 0px auto;
+        
+    }
+    .rectangulo {
+                    justify-content: center;
+                    display: flex;
+                    width:100%;
+                }
+
+    .pie{
+        color: midnightblue;
+        font-family: 'Geneva', sans-serif;
+        font-size: 1.1rem;
+        text-align:center;
+        font-weight: bold;
+        bottom: 70%;
+    }
+    .button{
+        background: black;
+        cursor: pointer;
+        border: none;
+        padding: auto;
+        color: aliceblue;
+        font-weight: bold;
+        position: relative;
+        border-radius: 15px;
+
+    }
+
+    button:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+        background-size: 800%;
+        border-radius: 12px;
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+    }
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+</style>
+</head>
+<body id="body">
+    
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectangulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triangulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html">
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html" class="selected">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+    <div class="main">
+        <b class="b">Área de un Paralelogramo</b>
+        <br>
+        En este programa se calcula el área de un Paralelogramo cuya base es <b>B</b> y su altura es <b>h</b>
+        <br><br>
+        <label for="h">Ingrese el valor de <b>h</b>:</label>
+        <input type="text" id="h">
+        <button class="button" onclick="calcularÁrea()">Calcular Área</button>
+        <br><br>
+        <label for="B">Ingrese el valor de <b>B</b>:</label>
+        <input type="text" id="B">
+        <button class="button" onclick="calcularaltura()">Calcular la altura</button>
+        <br><br>
+            <div class="rectangulo">
+                <img src="DecoImg/paralelogramo.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="h">Ingrese el valor de <b>Área</b>:</label>
+        <input type="text" id="Área">
+        <button class="button" onclick="calcularbase()">Calcular la base</button>
+        <br><br><br>
+        <b class="b">Perímetro de un paralelogramo</b>
+        <br>
+        En este programa se calcula el perímetro de un paralelogramo cuya base es <b>B</b> y su altura es <b>h</b>
+        <br><br>
+        <label for="h">Una vez que ingreses los valores presiona el botón:</label>
+        <br>
+        <input type="text" id="P">
+        <button class="button" onclick="calcularperimetro()">Calcular perímetro</button>
+        <br><br><br>
+        <b class="b">Diagonales de un paralelogramo</b>
+        <br>
+        En un paralelogramo se pueden encontrar 2 diagonales, para cada diagonal se usa una fórmula
+        similar y dicha fórmula se puede trabajar con dos ángulos conociendo el ángulo <b>A</b> y 
+        el ángulo <b>B</b>.
+        <br><br>
+        <div class="rectangulo">
+            <img src="DecoImg/paralelo2.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="anguloA">Ingrese el valor de <b>A</b>:</label>
+        <input type="text" id="anguloA">
+        <br><br>
+        <label for="anguloB">Ingrese el valor de <b>B</b>:</label>
+        <input type="text" id="anguloB">
+        <br><br>
+        <label for="ladoa">Ingrese el valor del lado <b>a</b>:</label>
+        <input type="text" id="ladoa">
+        <br><br>
+        <label for="diagonal1"><b>Primera diagonal</b>:</label>
+        <input type="text" id="diagonal1">
+        <br><br>
+        <label for="diagonal2"><b>Segunda diagonal</b>:</label>
+        <input type="text" id="diagonal2">
+        <br><br>
+        <button class="button" onclick="calculardiagonal()">Calcular diagonales</button>
+        <br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br><br><br>
+    </div>
+    <footer class="pie">
+        <br>
+        Esperamos que te haya sido de ayuda revisa el apartado definiciones de la página principal 
+        si quieres saber más del tema.
+    </footer>
+    <script src="calculadoramenu.js"></script>
+</body>
+<script language='javascript'>
+    function calcularÁrea(){
+        var B = document.getElementById("B").value;
+        var h =document.getElementById("h").value;
+        var area = B*h;
+
+        document.getElementById("Arriba").textContent = B;
+        document.getElementById("Abajo").textContent = B;
+        document.getElementById("Izquierda").textContent = h;
+        document.getElementById("Derecha").textContent = h;
+
+        document.getElementById("Área").value=area;
+    }
+    function calcularbase(){
+        var altura = document.getElementById("h").value;
+        var area = document.getElementById("Área").value;
+        var base = area/altura; 
+
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+
+        document.getElementById("B").value=base;
+    }
+    function calcularaltura(){
+        var base = document.getElementById("B").value;
+        var area = document.getElementById("Área").value;
+        var altura = area/base; 
+
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+
+        document.getElementById("h").value=altura;
+    }
+    function calcularperimetro(){
+        var base = parseInt(document.getElementById("B").value);
+        var altura =parseInt(document.getElementById("h").value);
+        var perimeter = 2*(base+altura); 
+
+        document.getElementById("Arriba").textContent = base;
+        document.getElementById("Abajo").textContent = base;
+        document.getElementById("Izquierda").textContent = altura;
+        document.getElementById("Derecha").textContent = altura;
+
+        document.getElementById("P").value=perimeter;
+    } 
+    function calculardiagonal(){
+        let ladoa = parseFloat(document.getElementById("ladoa").value);
+    let ladob =parseFloat(document.getElementById("B").value);
+    let anguloA =parseFloat(document.getElementById("anguloA").value);
+    let anguloB = parseFloat(document.getElementById("anguloB").value);
+    let tdiagonal1 = document.getElementById("diagonal1");
+    let tdiagonal2 = document.getElementById("diagonal2");
+    let diagonal1;
+    let diagonal2;
+    console.log(anguloB, isNaN(anguloB));
+    if(isNaN(anguloB)){
+        const a2masb2 = Math.pow(ladoa,2)+Math.pow(ladob,2);
+        const dosab = 2*(ladoa*ladob);
+        const anguloRad = (anguloA*(2 * Math.PI))/360;
+        const coseno = parseFloat(Math.cos(anguloRad));
+        const dosabcos = dosab*coseno;
+        diagonal1 = Math.sqrt(a2masb2 - dosabcos).toPrecision(5); 
+        diagonal2 = Math.sqrt(a2masb2 + dosabcos).toPrecision(5); 
+    }
+    else{
+        const a2masb2 = Math.pow(ladoa,2)+Math.pow(ladob,2);
+        const dosab = 2*(ladoa*ladob);
+        const anguloRad = (anguloB*(2 * Math.PI))/360;
+        const coseno = parseFloat(Math.cos(anguloRad));
+        const dosabcos = dosab*coseno;
+        diagonal1 = Math.sqrt(a2masb2 + dosabcos).toPrecision(5); 
+        diagonal2 = Math.sqrt(a2masb2 - dosabcos).toPrecision(5); 
+    }
+    tdiagonal1.value = diagonal1;
+    tdiagonal2.value = diagonal2;
+}
+    function Limpiarcampos(){
+
+        document.getElementById("Área").value="";
+        document.getElementById("B").value="";
+        document.getElementById("h").value="";
+        document.getElementById("anguloB").value="";
+        document.getElementById("anguloA").value="";
+        document.getElementById("ladoa").value="";
+        document.getElementById("P").value="";
+        document.getElementById("diagonal1").value="";
+        document.getElementById("diagonal2").value="";
+
+    }
+</script>
+</html>

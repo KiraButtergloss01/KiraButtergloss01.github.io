@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding my area by UNI-CO</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <style>
+        .main{
+            text-align:center;
+            align-items: center;
+            width: 100%;
+            margin: 0px auto 0px auto;
+            
+        }
+
+        .Text{
+            text-align:left;
+            align-items: center;
+        }
+        .encabezado-imagenes {
+        background-image: url(DecoImg/Portada.png);
+        height: 700px;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-items: Left;
+        color: #fff;
+        }
+
+        .encabezado-imagenes h1{
+        font-family: "Orbitron", sans-serif;
+        font-size: 50px;
+        padding: 20px;
+        color: #fff;
+        opacity: none;
+        }
+
+        .DescargaForm {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #17bbf1;
+        color: white;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.35;
+        }
+        .DescargaForm:hover {
+        background-color: #14e41b;
+        }
+        @media screen and (max-width: 760px){
+        .encabezado-imagenes {
+        background-image: url(DecoImg/Portada.png);
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+        }
+        .encabezado-imagenes h1{
+        font-family: "Orbitron", sans-serif;
+        font-size: 40px;
+        padding: 10px;
+        color: hsl(249, 78%, 2%);
+        opacity: none;
+        text-shadow:    
+        -1px 1px 0 white,
+        1px 1px 0 white,
+        1px 1px 0 white,
+        -1px 1px 0 white
+        }
+        }
+    </style>
+</head>
+<body id="body">
+    
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectangulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triangulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html">
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+<main> 
+    <div class="encabezado-imagenes">
+        <h1>Bienvenidos a <br> Finding your Area</h1>
+    </div>
+    <div class="main">
+        <br><br>
+        <p class="Text">Esta pagina tiene como objetivo ayudar a comprobar los resultados de nuestros ejercicios de calculo de area, 
+            perimetro y diagonales.</p>
+
+        <p class="Text">Contamos con calcuadoras para las figuras geometricas que aparecen en el capitulo 2 de la clase
+            de Geometria analitica descriptiva las cuales son:</p>
+        <br>
+        <ul class="Text">
+            <li>Rectangulo</li>
+            <li>Triangulo</li>
+            <li>Cuadrado</li>
+            <li>Paralelogramo</li>
+            <li>Rombo</li>
+            <li>Trapecio</li>
+        </ul>
+        <a href="Formulario de Unidad II.pdf" download class="DescargaForm"> Descarga el Formulario</a>
+</main>
+
+    <script src="calculadoramenu.js"></script>
+</body>
+</html>

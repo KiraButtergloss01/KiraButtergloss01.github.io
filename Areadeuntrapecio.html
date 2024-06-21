@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trapecio encontrado</title>
+    
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Seymour+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap'); 
+
+    .main{
+        text-align:center;
+        align-items: center;
+        width: 80%;
+        margin: 0px auto 0px auto;
+        
+    }
+    .rectangulo {
+                    justify-content: center;
+                    display: flex;
+                    width:100%;
+                }
+    .Izquierda{
+        position: absolute;
+        font-weight: bold;
+        bottom: 24%;
+        left: 40%;
+    }
+    .Derecha{
+        position: absolute;
+        font-weight: bold;
+        bottom: 34%;
+        right: 46%;
+    }
+    .Arriba{
+        position: absolute;
+        font-weight: bold;
+        left: 49%;
+        top: 53.5%;
+    }  
+    .Abajo{
+        position: absolute;
+        font-weight: bold;
+        left: 50%;
+        bottom: 7%;
+    } 
+    .pie{
+        color: midnightblue;
+        font-family: 'Geneva', sans-serif;
+        font-size: 1.1rem;
+        text-align:center;
+        font-weight: bold;
+        bottom: 70%;
+    }
+    .button{
+        background: black;
+        cursor: pointer;
+        border: none;
+        padding: auto;
+        color: aliceblue;
+        font-weight: bold;
+        position: relative;
+        border-radius: 15px;
+
+    }
+
+    button:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+        background-size: 800%;
+        border-radius: 12px;
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+    }
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+</style>
+</head>
+<body id="body">
+    
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectangulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triangulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+        <b class="b">Área de un Trapecio</b>
+        <br>
+        En este programa se calcula el área de un Trapecio cuya base mayor es denotada por <b>B</b>, su base media por <b>b</b>
+        y su altura por <b>h</b>
+        <br><br>
+        <label for="h">Ingrese el valor de <b>h</b>:</label>
+        <input type="text" id="h">
+        <button class="button" onclick="calcularÁrea()">Calcular Área</button>
+        <br><br>
+
+        <label for="h">Ingrese el valor de <b>B</b>:</label>
+        <input type="text" id="B">
+        <button class="button" onclick="calcularaltura()">Calcular la altura</button>
+        <br><br>
+
+        <label for="h">Ingrese el valor de <b>b</b>:</label>
+        <input type="text" id="b">
+        <button class="button" onclick="calcularbasemayor()">Calcular la Base mayor</button>
+        <br><br>
+
+            <div class="rectangulo">
+                <img src="DecoImg/Trapezoide.png" alt="La imagen no se pudo cargar">
+                <div class="Izquierda" id="Izquierda">B'</div>
+                <div class="Arriba" id="Arriba">Base Menor</div>
+                <div class="Abajo" id="Abajo">Base Mayor</div>
+                <div class="Derecha" id="Derecha">Altura</div>
+        </div>
+        <br><br>
+
+        <label for="h">Ingrese el valor de <b>Área</b>:</label>
+        <input type="text" id="Área">
+        <button class="button" onclick="calcularbasemenor()">Calcular la base menor</button>
+        <br><br><br>
+        <b class="b">Perímetro de un Trapecio</b>
+        <br>
+        <P>Para calcular el perímetro necesitas ingresar los lados <b>c</b> y <b>d</b> que se muestran en la figura y las bases del trapecio.</p>
+        <br>
+        <div class="rectangulo">
+            <img src="DecoImg/Trapecio2.png" alt="La imagen no se pudo cargar">
+        </div>
+        <br><br>
+        <label for="c">Ingrese el valor de <b>c</b>:</label>
+        <input type="text" id="c">
+        <br><br>
+        <label for="d">Ingrese el valor de <b>d</b>:</label>
+        <input type="text" id="d">
+        <br><br>
+        <input type="text" id="P">
+        <button class="button" onclick="calcularperimetro()">Calcular perímetro</button>
+        <br><br><br>
+        <b class="b">Diagonal de un Trapecio</b>
+        <br>
+        En un trapecio se pueden encontrar 2 diagonales, para cada diagonal se usa una misma formula pero se usan diferentes datos.
+        <br><br>
+        Para calcular la <b>primera diagonal</b> se necesita la <b>base mayor</b>, el lado <b>d</b> y el ángulo en grados <b>&beta;</b>.
+        <br><br>
+        Para calcular la <b>segunda diagonal</b> se necesita la <b>base mayor</b>, el lado <b>c</b> y el ángulo en grados <b>&alpha;</b>.
+        <br><br>
+        <label for="beta">Ingrese el valor de <b>&beta;</b>:</label>
+        <input type="text" id="beta">
+        <br><br>
+        <label for="alpha">Ingrese el valor de <b>&alpha;</b>:</label>
+        <input type="text" id="alpha">
+        <br><br>
+        <input type="text" id="D1">
+        <button class="button" onclick="calculardiagonal1()">Calcular la primera diagonal </button>
+        <br><br><br>
+        <input type="text" id="D2">
+        <button class="button" onclick="calculardiagonal2()">Calcular la segunda diagonal</button>
+        <br><br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br>
+    </div>
+    <footer class="pie">
+        <br>
+        Esperamos que te haya sido de ayuda revisa el apartado definiciones de la página principal 
+        si quieres saber más del tema.
+    </footer>
+    <script src="calculadoramenu.js"></script>
+</body>
+<script language='javascript'>
+    function calcularÁrea(){
+        var mayor = parseInt(document.getElementById("B").value);
+        var menor = parseInt(document.getElementById("b").value);
+        var altura =parseInt(document.getElementById("h").value);
+        var Sumadebases =parseInt(mayor) + parseInt(menor);
+        var division = parseInt(Sumadebases)/2;
+        var area = parseFloat(division)*parseFloat(altura);
+
+        document.getElementById("Arriba").textContent = menor;
+        document.getElementById("Abajo").textContent = mayor;
+        document.getElementById("Izquierda").textContent =Sumadebases;
+        document.getElementById("Derecha").textContent =altura;
+        document.getElementById("Área").value=area;
+    }
+    function calcularbasemayor(){
+        var altura = document.getElementById("h").value;
+        var area = document.getElementById("Área").value;
+        var basem = document.getElementById("b").value;
+        var division = area/altura;
+        var multiplicacion = division*2;
+        var baseM = multiplicacion-basem;  
+
+        document.getElementById("Arriba").textContent = basem;
+        document.getElementById("Abajo").textContent = area;
+        document.getElementById("Izquierda").textContent = multiplicacion;
+        document.getElementById("Derecha").textContent = division;
+
+        document.getElementById("B").value=baseM;
+    }
+    function calcularbasemenor(){
+        var altura = document.getElementById("h").value;
+        var area = document.getElementById("Área").value;
+        var baseM = document.getElementById("B").value;
+        var division = area/altura;
+        var multiplicacion = division*2;
+        var basem = multiplicacion-baseM;  
+
+        document.getElementById("Arriba").textContent = baseM;
+        document.getElementById("Abajo").textContent = area;
+        document.getElementById("Izquierda").textContent = multiplicacion;
+        document.getElementById("Derecha").textContent = division;
+
+        document.getElementById("b").value=basem;
+        }
+    function calcularaltura(){
+        var baseM = parseInt(document.getElementById("B").value);
+        var basem = parseInt(document.getElementById("b").value);
+        var area = parseInt(document.getElementById("Área").value);
+        var Sumadebases =baseM + basem;
+        var multiplicacion = area*2;
+        var altura = parseInt(multiplicacion)/parseInt(Sumadebases); 
+
+        document.getElementById("Arriba").textContent = baseM;
+        document.getElementById("Abajo").textContent = multiplicacion;
+        document.getElementById("Izquierda").textContent = Sumadebases;
+        document.getElementById("Derecha").textContent = area;
+
+        document.getElementById("h").value=altura;
+    } 
+    function calcularperimetro(){
+        var mayor = parseInt(document.getElementById("B").value);
+        var menor = parseInt(document.getElementById("b").value);
+        var ladoc =parseInt(document.getElementById("c").value);
+        var ladod =parseInt(document.getElementById("d").value);
+        var perimeter = mayor+menor+ladoc+ladod;
+        document.getElementById("P").value=perimeter;
+    } 
+    function calculardiagonal1(){
+        let mayor = parseFloat(document.getElementById("B").value);
+        let ladod =parseFloat(document.getElementById("d").value);
+        let angulobeta =parseFloat(document.getElementById("beta").value);
+        const suma = Math.pow(mayor,2)+Math.pow(ladod,2);
+        const multiplicacion1 = 2*(mayor*ladod);
+        const radianes = (angulobeta*(2 * Math.PI))/360;
+        const coseno= Math.cos(radianes);
+        const multiplicacion2 = multiplicacion1*coseno;
+        const resta = suma-multiplicacion2;
+        const diagonal1 = Math.sqrt(resta).toPrecision(5); 
+        document.getElementById("D1").value=diagonal1;
+        document.getElementById("Arriba").value =suma;
+        document.getElementById("Abajo").value =multiplicacion1;
+        document.getElementById("Izquierda").value =multiplicacion2;
+        document.getElementById("Derecha").value =resta; 
+        document.getElementById("Área").value=coseno;
+    }
+    function calculardiagonal2(){
+        let mayor = parseFloat(document.getElementById("B").value);
+        let ladoc =parseFloat(document.getElementById("c").value);
+        let anguloalpha =parseFloat(document.getElementById("alpha").value);
+        const suma = Math.pow(mayor,2)+Math.pow(ladoc,2);
+        const multiplicacion1 = 2*(mayor*ladoc);
+        const radianes = (anguloalpha*(2 * Math.PI))/360;
+        const coseno= Math.cos(radianes);
+        const multiplicacion2 = multiplicacion1*coseno;
+        const resta = suma-multiplicacion2;
+        const diagonal2 = Math.sqrt(resta).toPrecision(5); 
+        document.getElementById("D2").value=diagonal2;
+    }
+    function Limpiarcampos(){
+        document.getElementById("Arriba").textContent = "Base menor";
+        document.getElementById("Abajo").textContent = "Base Mayor";
+        document.getElementById("Izquierda").textContent = "B'";
+        document.getElementById("Derecha").textContent = "Altura";
+        document.getElementById("Área").value="";
+        document.getElementById("h").value="";
+        document.getElementById("B").value="";
+        document.getElementById("b").value="";
+        document.getElementById("d").value="";
+        document.getElementById("c").value="";
+        document.getElementById("B").value="";
+        document.getElementById("P").value="";
+        document.getElementById("D1").value="";
+        document.getElementById("D2").value="";
+        document.getElementById("alpha").value="";
+        document.getElementById("beta").value="";
+    }
+</script>
+
+</html>

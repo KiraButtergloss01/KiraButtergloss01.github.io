@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadrado encontrado </title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Seymour+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+
+    .b{
+        font-family: "Orbitron", sans-serif;
+        color: midnightblue;
+        font-size: 40px;
+        align-items: center;
+    }
+
+    .main{
+        text-align:center;
+        align-items: center;
+        width: 80%;
+        margin: 0px auto 0px auto;
+        
+    }
+    .cuadrado {
+                    justify-content: center;
+                    display: flex;
+                    width: 100%;
+                }
+    .Izquierda{
+        position: absolute;
+        font-weight: bold;
+        bottom: 30%;
+        left: 32%;
+    }
+    .Derecha{
+        position: absolute;
+        font-weight: bold;
+        bottom: 30%;
+        right: 27%;
+    }
+    .Arriba{
+        position: absolute;
+        font-weight: bold;
+        left: 51%;
+        top: 34%;
+    }  
+    .Abajo{
+        position: absolute;
+        font-weight: bold;
+        left: 51%;
+        bottom: -1%;
+    } 
+    .pie{
+        color: midnightblue;
+        font-family: 'Geneva', sans-serif;
+        font-size: 1.1rem;
+        text-align:center;
+        font-weight: bold;
+        bottom: 70%;
+    }
+    .button{
+        background: black;
+        cursor: pointer;
+        border: none;
+        padding: auto;
+        color: aliceblue;
+        font-weight: bold;
+        position: relative;
+        border-radius: 20px;
+
+    }
+
+    button:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+        background-size: 800%;
+        border-radius: 20px;
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+    }
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+</style>
+
+</head>
+<body id="body">
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <b>Finding your area</b>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img class="logo" src="logofec.png" alt="La imagen no se pudo cargar">
+            <h4 class="otherheader">Geometría Analítica</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="menucalculadora.html">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+
+                </div>
+            </a>
+
+            <a href="Areadeunrectangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-person-through-window" title="Rectángulo"></i>
+                    <h4>Rectangulo</h4>
+                </div>
+            </a>
+            
+            <a href="Areadeuntriangulo.html">
+                <div class="option">
+                    <i class="fa-solid fa-mountain" title="Triángulo"></i>
+                    <h4>Triangulo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuncuadrado.html" class="selected">
+                <div class="option">
+                    <i class="fa-regular fa-square" title="Cuadrado"></i>
+                    <h4>Cuadrado</h4>
+                </div>
+            </a>
+
+            <a href="Areadeuntrapecio.html">
+                <div class="option">
+                    <i class="fa-solid fa-weight-hanging" title="Trapecio"></i>
+                    <h4>Trapecio</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunrombo.html">
+                <div class="option">
+                    <i class="fa-solid fa-diamond" title="Rombo"></i>
+                    <h4>Rombo</h4>
+                </div>
+            </a>
+
+            <a href="Areadeunparalelogramo.html">
+                <div class="option">
+                    <i class="fa-brands fa-windows" title="Paralelogramo"></i>
+                    <h4>Paralelogramo</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+    <div class="main">
+        <b class="b">Área de un Cuadrado</b>
+        <br>
+        En este programa se calcula el área de un rectángulo cuyos lados miden <b>L</b>
+        <br><br>
+        <label for="L">Ingrese el valor de <b>L</b>:</label>
+        <input type="text" id="L">
+        <button class="button" onclick="calcularÁrea()">Calcular Área</button>
+        <br><br><br>
+
+            <div class="cuadrado">
+                <img src="DecoImg/Cuadrado.png" alt="La imagen no se pudo cargar">
+
+                <div class="Izquierda" id="Izquierda">Izquierda</div>
+                <div class="Arriba" id="Arriba">Arriba</div>
+                <div class="Abajo" id="Abajo">Abajo</div>
+                <div class="Derecha" id="Derecha">Derecha</div>
+        </div>
+        <br><br>
+        <label for="Área">Ingrese el valor de <b>Área</b>:</label>
+        <input type="text" id="Área">   
+        <br><br><br>
+        <b class="b">Perímetro de un Cuadrado</b>
+        <br>
+        En este programa se calcula el perímetro de un rectángulo cuya lados miden es <b>L</b>
+        <br><br>
+        <label for="P">Una vez que ingreses el valor presiona el botón:</label>
+        <br>
+        <input type="text" id="P">
+        <button class="button" onclick="calcularperimetro()">Calcular perímetro</button>
+        <br><br><br>
+        <b class="b">Diagonal de un Cuadrado</b>
+        <br>
+        En este programa se calcula la diagonal de un cuadrado cuya lados miden es <b>L</b>
+        <br><br>
+        <label for="D">Una vez que ingreses el valor presiona el botón:</label>
+        <br>
+        <input type="text" id="D">
+        <button class="button" onclick="calculardiagonal()">Calcular la diagonal</button>
+        <br><br><br>
+        <button class="button" onclick="Limpiarcampos()">Limpiar campos</button>
+        <br>
+    </div>
+    <footer class="pie">
+        <br>
+        Esperamos que te haya sido de ayuda revisa el apartado definiciones de la página principal 
+        si quieres saber más del tema.
+    </footer>
+    <script src="Calculadoramenu.js"></script>
+</body>
+<script language='javascript'>
+    function calcularÁrea(){
+        var L = document.getElementById("L").value;
+        var area = Math.pow(L,2)
+
+        document.getElementById("Arriba").textContent = L;
+        document.getElementById("Abajo").textContent = L;
+        document.getElementById("Izquierda").textContent = L;
+        document.getElementById("Derecha").textContent = L;
+
+        document.getElementById("Área").value=area;
+    }
+    function calcularperimetro(){
+        var lado = document.getElementById("L").value;
+        var perimeter =lado*4; 
+
+        document.getElementById("Arriba").textContent = lado;
+        document.getElementById("Abajo").textContent = lado;
+        document.getElementById("Izquierda").textContent = lado;
+        document.getElementById("Derecha").textContent = lado;
+
+        document.getElementById("P").value=perimeter;
+    }
+    function calculardiagonal(){
+        var lado = document.getElementById("L").value;
+        var diagonal =Math.sqrt(lado*2); 
+
+        document.getElementById("Arriba").textContent = lado;
+        document.getElementById("Abajo").textContent = lado;
+        document.getElementById("Izquierda").textContent = lado;
+        document.getElementById("Derecha").textContent = lado;
+
+        document.getElementById("D").value=diagonal;
+    }
+    function Limpiarcampos(){
+        document.getElementById("Arriba").textContent = "Arriba";
+        document.getElementById("Abajo").textContent = "Abajo";
+        document.getElementById("Izquierda").textContent = "Izquierda";
+        document.getElementById("Derecha").textContent = "Derecha";
+        document.getElementById("Área").value="";
+        document.getElementById("P").value="";
+        document.getElementById("L").value="";
+        document.getElementById("D").value="";
+    }
+</script>
+
+</html>
