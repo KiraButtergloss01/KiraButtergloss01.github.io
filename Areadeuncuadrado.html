@@ -29,30 +29,6 @@
                     display: flex;
                     width: 100%;
                 }
-    .Izquierda{
-        position: absolute;
-        font-weight: bold;
-        bottom: 30%;
-        left: 32%;
-    }
-    .Derecha{
-        position: absolute;
-        font-weight: bold;
-        bottom: 30%;
-        right: 27%;
-    }
-    .Arriba{
-        position: absolute;
-        font-weight: bold;
-        left: 51%;
-        top: 34%;
-    }  
-    .Abajo{
-        position: absolute;
-        font-weight: bold;
-        left: 51%;
-        bottom: -1%;
-    } 
     .pie{
         color: midnightblue;
         font-family: 'Geneva', sans-serif;
@@ -184,10 +160,6 @@
             <div class="cuadrado">
                 <img src="DecoImg/Cuadrado.png" alt="La imagen no se pudo cargar">
 
-                <div class="Izquierda" id="Izquierda">Izquierda</div>
-                <div class="Arriba" id="Arriba">Arriba</div>
-                <div class="Abajo" id="Abajo">Abajo</div>
-                <div class="Derecha" id="Derecha">Derecha</div>
         </div>
         <br><br>
         <label for="Área">Ingrese el valor de <b>Área</b>:</label>
@@ -226,21 +198,11 @@
         var L = document.getElementById("L").value;
         var area = Math.pow(L,2)
 
-        document.getElementById("Arriba").textContent = L;
-        document.getElementById("Abajo").textContent = L;
-        document.getElementById("Izquierda").textContent = L;
-        document.getElementById("Derecha").textContent = L;
-
         document.getElementById("Área").value=area;
     }
     function calcularperimetro(){
         var lado = document.getElementById("L").value;
         var perimeter =lado*4; 
-
-        document.getElementById("Arriba").textContent = lado;
-        document.getElementById("Abajo").textContent = lado;
-        document.getElementById("Izquierda").textContent = lado;
-        document.getElementById("Derecha").textContent = lado;
 
         document.getElementById("P").value=perimeter;
     }
@@ -248,18 +210,10 @@
         var lado = document.getElementById("L").value;
         var diagonal =Math.sqrt(lado*2); 
 
-        document.getElementById("Arriba").textContent = lado;
-        document.getElementById("Abajo").textContent = lado;
-        document.getElementById("Izquierda").textContent = lado;
-        document.getElementById("Derecha").textContent = lado;
-
         document.getElementById("D").value=diagonal;
     }
     function Limpiarcampos(){
-        document.getElementById("Arriba").textContent = "Arriba";
-        document.getElementById("Abajo").textContent = "Abajo";
-        document.getElementById("Izquierda").textContent = "Izquierda";
-        document.getElementById("Derecha").textContent = "Derecha";
+
         document.getElementById("Área").value="";
         document.getElementById("P").value="";
         document.getElementById("L").value="";
